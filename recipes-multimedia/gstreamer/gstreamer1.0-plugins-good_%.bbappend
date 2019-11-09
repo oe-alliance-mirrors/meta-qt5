@@ -1,10 +1,6 @@
 inherit qmake5_paths
 
-PACKAGECONFIG[qt5] = '--enable-qt \
-                      --with-moc="${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc" \
-                      --with-uic="${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic" \
-                      --with-rcc="${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/rcc" \
-                     ,--disable-qt,qtbase qtdeclarative qtbase-native'
+PACKAGECONFIG[qt5] = '-Dqt5=enabled,-Dqt5=disabled,qtbase qtdeclarative qtbase-native'
 
 # The GStreamer Qt5 plugin needs desktop OpenGL or OpenGL ES to work, so make sure it is enabled
 python() {
