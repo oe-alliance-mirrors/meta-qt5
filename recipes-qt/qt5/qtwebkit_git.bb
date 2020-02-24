@@ -23,6 +23,7 @@ ARM_INSTRUCTION_SET_armv5 = "arm"
 SRC_URI += "\
     file://0001-qtwebkit-fix-QA-issue-bad-RPATH.patch \
     file://0002-Exclude-backtrace-API-for-non-glibc-libraries.patch \
+    file://0003-remove-sh4-cflags-cxxflags.patch \
 "
 
 PACKAGECONFIG ??= "gstreamer qtlocation qtmultimedia qtsensors qtwebchannel \
