@@ -24,6 +24,7 @@ SRC_URI += "\
     file://0001-qtwebkit-fix-QA-issue-bad-RPATH.patch \
     file://0002-Exclude-backtrace-API-for-non-glibc-libraries.patch \
     file://0003-remove-sh4-cflags-cxxflags.patch \
+    file://0005-fix-build-with-icu-68.1.patch \
 "
 
 PACKAGECONFIG ??= "gstreamer qtlocation qtmultimedia qtsensors qtwebchannel \
@@ -65,6 +66,8 @@ do_configure_prepend() {
     # disable fontconfig test if it isn't enabled by PACKAGECONFIG
     sed -e 's/\s\(config_fontconfig: \)/ OE_FONTCONFIG_ENABLED:\1/' -i ${S}/Tools/qmake/mkspecs/features/features.prf
 }
+
+CXXFLAGS += " -std=gnu++98 -fpermissive -Wno-expansion-to-defined -Wno-unused-local-typedefs -Wno-c++11-compat -Wno-cast-align -Wno-class-memaccess -Wno-deprecated-declarations -Wno-deprecated-copy"
 
 # Forcibly enable ICU, so qtbase doesn't need it.
 EXTRA_QMAKEVARS_PRE += "QT_CONFIG+=icu"
