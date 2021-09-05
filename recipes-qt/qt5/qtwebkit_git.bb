@@ -24,6 +24,7 @@ SRC_URI += "\
     file://0001-qtwebkit-fix-QA-issue-bad-RPATH.patch \
     file://0002-Exclude-backtrace-API-for-non-glibc-libraries.patch \
     file://0003-remove-sh4-cflags-cxxflags.patch \
+    file://0004-Fix-ICU-related-compile-failures.patch \
     file://0005-fix-build-with-icu-68.1.patch \
 "
 
