@@ -1,0 +1,37 @@
+From 721e80f051c57c76241c403d2d231618a67fcc02 Mon Sep 17 00:00:00 2001
+From: Captain <captain.onboard@web.de>
+Date: Sat, 28 May 2022 19:49:31 +0200
+Subject: [PATCH] qfloat16-Include-limits-header
+
+---
+ src/corelib/global/qfloat16.h         | 1 +
+ src/corelib/tools/qbytearraymatcher.h | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/corelib/global/qfloat16.h b/src/corelib/global/qfloat16.h
+index a0aa9496b4..5e04ae15e5 100644
+--- a/src/corelib/global/qfloat16.h
++++ b/src/corelib/global/qfloat16.h
+@@ -43,6 +43,7 @@
+ #include <QtCore/qglobal.h>
+ #include <QtCore/qmetatype.h>
+ #include <string.h>
++#include <limits>
+ 
+ #if defined(QT_COMPILER_SUPPORTS_F16C) && defined(__AVX2__) && !defined(__F16C__)
+ // All processors that support AVX2 do support F16C too. That doesn't mean
+diff --git a/src/corelib/tools/qbytearraymatcher.h b/src/corelib/tools/qbytearraymatcher.h
+index c1c0c3a660..c2f7fe753d 100644
+--- a/src/corelib/tools/qbytearraymatcher.h
++++ b/src/corelib/tools/qbytearraymatcher.h
+@@ -40,6 +40,7 @@
+ #ifndef QBYTEARRAYMATCHER_H
+ #define QBYTEARRAYMATCHER_H
+ 
++#include <limits>
+ #include <QtCore/qbytearray.h>
+ 
+ QT_BEGIN_NAMESPACE
+-- 
+2.36.0.windows.1
+
