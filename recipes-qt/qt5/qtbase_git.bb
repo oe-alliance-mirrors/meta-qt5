@@ -85,6 +85,10 @@ PACKAGECONFIG ?= " \
     ${PACKAGECONFIG_DISTRO} \
 "
 
+# Choose whether to link to OpenSSL library at linking time or run time
+# Leave the variable empty to let the buildsystem decide, or specify -linked or -runtime
+OPENSSL_LINKING_MODE ??= ""
+
 PACKAGECONFIG[release] = "-release,-debug"
 PACKAGECONFIG[debug] = ""
 PACKAGECONFIG[developer] = "-developer-build"
@@ -141,7 +145,7 @@ PACKAGECONFIG[kms] = "-kms,-no-kms,drm virtual/egl"
 PACKAGECONFIG[gbm] = "-gbm,-no-gbm,virtual/mesa"
 PACKAGECONFIG[icu] = "-icu,-no-icu,icu"
 PACKAGECONFIG[udev] = "-libudev,-no-libudev,udev"
-PACKAGECONFIG[openssl] = "-openssl,-no-openssl,openssl,libssl"
+PACKAGECONFIG[openssl] = "-openssl${OPENSSL_LINKING_MODE},-no-openssl,openssl,libssl"
 PACKAGECONFIG[widgets] = "-widgets,-no-widgets"
 PACKAGECONFIG[libproxy] = "-libproxy,-no-libproxy,libproxy"
 PACKAGECONFIG[libinput] = "-libinput,-no-libinput,libinput"
