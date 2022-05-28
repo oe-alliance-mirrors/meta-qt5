@@ -35,6 +35,7 @@ SRC_URI += "\
     file://0010-linux-clang-Invert-conditional-for-defining-QT_SOCKL.patch \
     file://0011-tst_qlocale-Enable-QT_USE_FENV-only-on-glibc.patch \
     file://0013-qfloat16-Include-limits-header.patch \
+    file://0014-mkspecs-fix-build-with-gcc9.patch \
 "
 
 # common for qtbase-native and nativesdk-qtbase
