@@ -35,7 +35,7 @@ SRC_URI += "\
 # LGPL-3.0 is used only in src/plugins/platforms/android/extract.cpp
 
 # for syncqt
-RDEPENDS_${PN}-tools += "perl"
+RDEPENDS:${PN}-tools += "perl"
 
 # workaround for gold bug:
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842304
@@ -56,8 +56,8 @@ RDEPENDS_${PN}-tools += "perl"
 # OE @ ~/build/oe-core/tmp-glibc/work/i586-oe-linux/qtbase/5.9.0+gitAUTOINC+f6b36eaafe-r0/build/tests/auto/corelib/kernel/qmetatype $ i586-oe-linux-g++  -m32 -march=i586 --sysroot=/OE/build/oe-core/tmp-glibc/work/i586-oe-linux/qtbase/5.9.0+gitAUTOINC+f6b36eaafe-r0/recipe-sysroot -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed --sysroot=/OE/build/oe-core/tmp-glibc/work/i586-oe-linux/qtbase/5.9.0+gitAUTOINC+f6b36eaafe-r0/recipe-sysroot -Wl,-O1 -fuse-ld=bfd -Wl,--enable-new-dtags -o tst_qmetatype .obj/tst_qmetatype.o   -L/OE/build/oe-core/tmp-glibc/work/i586-oe-linux/qtbase/5.9.0+gitAUTOINC+f6b36eaafe-r0/build/lib -lQt5Test -lQt5Core -lpthread
 #
 # http://errors.yoctoproject.org/Errors/Details/150329/
-QT_CONFIG_FLAGS_GOLD_x86 = "-no-use-gold-linker"
-LDFLAGS_append_x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
+QT_CONFIG_FLAGS_GOLD:x86 = "-no-use-gold-linker"
+LDFLAGS:append:x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
 
 # separate some parts of PACKAGECONFIG which are often changed
 PACKAGECONFIG_GL ?= "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gl', '', d)}"
@@ -161,13 +161,13 @@ QT_CONFIG_FLAGS += " \
 # since we cannot set empty set filename to a not existent file
 deltask generate_qt_config_file
 
-XPLATFORM_toolchain-clang = "linux-oe-clang"
+XPLATFORM:toolchain-clang = "linux-oe-clang"
 XPLATFORM ?= "linux-oe-g++"
 
 # Causes qdrawhelper.s: Error: unaligned opcodes detected in executable segment
 # when building qtbase/5.6.3+gitAUTOINC+e6f8b072d2-r0/git/src/gui/painting/qdrawhelper.cpp
-ARM_INSTRUCTION_SET_armv4 = "arm"
-ARM_INSTRUCTION_SET_armv5 = "arm"
+ARM_INSTRUCTION_SET:armv4 = "arm"
+ARM_INSTRUCTION_SET:armv5 = "arm"
 
 do_configure() {
     # Avoid qmake error "Cannot read [...]/usr/lib/qt5/mkspecs/oe-device-extra.pri: No such file or directory" during configuration
@@ -201,7 +201,7 @@ do_configure() {
         ${QT_CONFIG_FLAGS}
 }
 
-do_install_append() {
+do_install:append() {
     # Avoid qmake error "Cannot read [...]/usr/lib/qt5/mkspecs/oe-device-extra.pri: No such file or directory"
     touch ${D}/${OE_QMAKE_PATH_QT_ARCHDATA}/mkspecs/oe-device-extra.pri
 
@@ -216,8 +216,8 @@ do_install_append() {
 }
 
 # mkspecs have mac specific scripts that depend on perl and bash
-INSANE_SKIP_${PN}-mkspecs += "file-rdeps"
+INSANE_SKIP:${PN}-mkspecs += "file-rdeps"
 
-RRECOMMENDS_${PN}-plugins += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'libx11-locale', '', d)}"
+RRECOMMENDS:${PN}-plugins += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'libx11-locale', '', d)}"
 
 SRCREV = "82eb6aa08e5dc8a57402b69b4e55ce7d2371e84b"

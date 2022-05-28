@@ -20,13 +20,13 @@ LIC_FILES_CHKSUM = " \
 #{standard input}:23: Error: selected processor does not support Thumb mode `stmdb sp!,{r4-r8,lr}'
 #{standard input}:30: Error: lo register required -- `ldmia sp!,{r4-r8,lr}'
 #{standard input}:43: Error: lo register required -- `ldmia sp!,{r4-r8,lr}'
-ARM_INSTRUCTION_SET_armv4 = "arm"
-ARM_INSTRUCTION_SET_armv5 = "arm"
+ARM_INSTRUCTION_SET:armv4 = "arm"
+ARM_INSTRUCTION_SET:armv5 = "arm"
 
 DEPENDS += "qtbase"
 
 # The same issue as in qtbase:
 # http://errors.yoctoproject.org/Errors/Build/44915/
-LDFLAGS_append_x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
+LDFLAGS:append:x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
 
 SRCREV = "4fe24b5f0d104976f361fd03e5398730bccc4c98"

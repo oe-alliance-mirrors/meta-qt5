@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = " \
 inherit qmake5
 
 DEPENDS = "qtbase qtscript qtwebkit qtxmlpatterns qtx11extras qtdeclarative qttools qttools-native qtsvg qtquick1"
-DEPENDS_append_libc-musl = " libexecinfo"
+DEPENDS:append:libc-musl = " libexecinfo"
 
 # Patches from https://github.com/meta-qt5/qtcreator/commits/b5.3.1
 # 5.3.1.meta-qt5.1
@@ -29,7 +29,7 @@ SRC_URI = " \
     file://qtcreator.desktop.in \
 "
 
-SRC_URI_append_libc-musl = " file://0004-Link-with-libexecinfo-on-musl.patch"
+SRC_URI:append:libc-musl = " file://0004-Link-with-libexecinfo-on-musl.patch"
 
 
 SRC_URI[md5sum] = "77aef7df837eba07c7ce6037ee504c05"
@@ -39,8 +39,8 @@ S = "${WORKDIR}/qt-creator-opensource-src-${PV}"
 
 EXTRA_QMAKEVARS_PRE += "IDE_LIBRARY_BASENAME=${baselib}${QT_DIR_NAME}"
 
-LDFLAGS_append_libc-musl = " -lexecinfo "
-do_configure_append() {
+LDFLAGS:append:libc-musl = " -lexecinfo "
+do_configure:append() {
     # Find native tools
     sed -i 's:${STAGING_BINDIR}.*/lrelease:${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease:g' ${B}/share/qtcreator/translations/Makefile
     sed -i 's:${STAGING_BINDIR}.*/qdoc:${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qdoc:g' ${B}/Makefile
@@ -49,7 +49,7 @@ do_configure_append() {
     # sed -i 's:QT_INSTALL_DOCS=${docdir}:QT_INSTALL_DOCS=${STAGING_DATADIR_NATIVE}${QT_DIR_NAME}/doc:g' ${B}/Makefile
 }
 
-do_compile_append() {
+do_compile:append() {
     # build docs
     #oe_runmake docs_online
 }
@@ -63,27 +63,27 @@ do_install() {
     sed -i 's:@QT5_QMAKE@:${OE_QMAKE_PATH_QT_BINS}:g' ${D}${datadir}/applications/qtcreator.desktop
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/qtcreator \
     ${datadir}/icons \
     ${libdir}${QT_DIR_NAME}/qtcreator \
 "
-FILES_${PN}-dbg += " \
+FILES:${PN}-dbg += " \
     ${libdir}${QT_DIR_NAME}/qtcreator/.debug \
     ${libdir}${QT_DIR_NAME}/qtcreator/plugins/.debug \
     ${libdir}${QT_DIR_NAME}/qtcreator/plugins/qmldesigner/.debug \
     ${libdir}${QT_DIR_NAME}/qtcreator/plugins/qbs/plugins/.debug \
 "
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
     ${libdir}${QT_DIR_NAME}/qtcreator/*${SOLIBSDEV} \
 "
 
-RDEPENDS_${PN} += "perl"
-RCONFLICTS_${PN} = "qt-creator"
+RDEPENDS:${PN} += "perl"
+RCONFLICTS:${PN} = "qt-creator"
 
 # To give best user experience out of the box..
-RRECOMMENDS_${PN} += " \
+RRECOMMENDS:${PN} += " \
     packagegroup-qt5-toolchain-target \
     binutils \
     ccache \

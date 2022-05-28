@@ -8,7 +8,7 @@ inherit qmake5
 
 DEPENDS = "maliit-framework-qt5"
 
-RDEPENDS_${PN} += "qtsvg-plugins"
+RDEPENDS:${PN} += "qtsvg-plugins"
 
 SRC_URI = "git://github.com/maliit/plugins.git;branch=master"
 
@@ -23,12 +23,12 @@ EXTRA_QMAKEVARS_PRE = "\
     CONFIG+=nodoc \
 "
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${libdir}/maliit \
     ${datadir} \
 "
 
-FILES_${PN}-dbg += "${libdir}/maliit/plugins/.debug"
+FILES:${PN}-dbg += "${libdir}/maliit/plugins/.debug"
 
 S= "${WORKDIR}/git"
 

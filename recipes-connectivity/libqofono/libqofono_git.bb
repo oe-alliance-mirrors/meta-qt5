@@ -13,7 +13,7 @@ PV = "0.92+gitr${SRCPV}"
 
 inherit qmake5
 
-do_install_append() {
+do_install:append() {
     if ls ${D}${libdir}/pkgconfig/qofono-qt5.pc >/dev/null 2>/dev/null; then
         sed -i "s@-L${STAGING_LIBDIR}@-L\${libdir}@g" ${D}${libdir}/pkgconfig/qofono-qt5.pc
     fi
@@ -21,19 +21,19 @@ do_install_append() {
 
 PACKAGES += "${PN}-tests"
 
-FILES_${PN}-dbg += " \
+FILES:${PN}-dbg += " \
     /lib/libqofono-qt5/tests/.debug \
     ${libdir}/qt5/qml/MeeGo/QOfono/.debug \
 "
-FILES_${PN}-tests = " \
+FILES:${PN}-tests = " \
     ${libdir}/libqofono-qt5/tests/tst_* \
     /opt/tests/libqofono-qt5 \
 "
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/qt5/qml/MeeGo/QOfono/qmldir \
     ${libdir}/qt5/qml/MeeGo/QOfono/libQOfonoQtDeclarative.so \
 "
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
     ${datadir}/qt5/mkspecs \
     ${libdir}/libqofono-qt5.prl \
 "

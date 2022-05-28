@@ -45,7 +45,7 @@ SRC_URI += " \
 
 CLEANBROKEN = "1"
 
-XPLATFORM_toolchain-clang = "linux-oe-clang"
+XPLATFORM:toolchain-clang = "linux-oe-clang"
 XPLATFORM ?= "linux-oe-g++"
 
 PACKAGECONFIG_CONFARGS = " \
@@ -93,7 +93,7 @@ PACKAGECONFIG_CONFARGS = " \
 # since we cannot set empty set filename to a not existent file
 deltask generate_qt_config_file
 
-do_configure_prepend() {
+do_configure:prepend() {
     # Avoid qmake error "Cannot read [...]/usr/lib/qt5/mkspecs/oe-device-extra.pri: No such file or directory"
     touch ${S}/mkspecs/oe-device-extra.pri
 

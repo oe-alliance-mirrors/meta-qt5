@@ -13,7 +13,7 @@ OE_QMAKE_PATH_TESTS = "${OE_QMAKE_PATH_QT_TESTS}"
 
 # Regenerate header files when they are included in source tarball
 # Otherwise cmake files don't set PRIVATE_HEADERS correctly
-do_configure_prepend() {
+do_configure:prepend() {
     rm -rf ${S}/include
     mkdir -p ${S}/.git || true
 }
