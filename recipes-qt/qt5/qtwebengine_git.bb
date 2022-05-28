@@ -19,7 +19,7 @@ DEPENDS += " \
     qtwebchannel \
     qtbase qtdeclarative qtxmlpatterns qtquickcontrols qtquickcontrols2 \
     qtlocation \
-    libdrm fontconfig pixman openssl pango cairo icu pciutils \
+    libdrm fontconfig pixman openssl10 pango cairo icu pciutils \
     libcap \
     gperf-native \
     ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa-lib', '', d)} \

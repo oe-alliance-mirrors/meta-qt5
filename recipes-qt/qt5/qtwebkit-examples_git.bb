@@ -15,6 +15,6 @@ PACKAGECONFIG ?= "examples"
 
 DEPENDS += "qtwebkit qtxmlpatterns"
 RDEPENDS:${PN}-examples += "qtwebkit-qmlplugins"
-RDEPENDS:${PN}-examples += "${@bb.utils.contains('PACKAGECONFIG_OPENSSL', 'openssl', 'ca-certificates', '', d)}"
+RDEPENDS:${PN}-examples += "${@bb.utils.contains('PACKAGECONFIG_OPENSSL', 'libcrypto-compat-1.0.0', 'ca-certificates', '', d)}"
 
 SRCREV = "a24c780b60d7d8bc00c4a48042cf7f32db777d55"
