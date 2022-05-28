@@ -16,7 +16,7 @@ DEPENDS = "qtbase"
 # Needed with gcc-5.2 https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65801
 CXXFLAGS += "-Wno-narrowing"
 
-SRC_URI = "git://github.com/nemomobile/qt5-plugin-generic-vboxtouch.git;protocol=https"
+SRC_URI = "git://github.com/nemomobile/qt5-plugin-generic-vboxtouch.git;protocol=https;branch=master"
 SRCREV = "3f2bdb5a1d346f02d5ab185522271ba2288a42bb"
 S = "${WORKDIR}/git/vboxtouch"
 
