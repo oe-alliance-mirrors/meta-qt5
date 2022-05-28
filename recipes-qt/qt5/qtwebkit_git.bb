@@ -1,7 +1,7 @@
 require qt5.inc
 require qt5-git.inc
 
-LICENSE = "BSD & LGPL-2.0-or-later | GPL-2.0-only"
+LICENSE = "BSD-3-Clause & LGPL-2.0-or-later | GPL-2.0-only"
 LIC_FILES_CHKSUM = " \
     file://LICENSE.GPLv2;md5=05832301944453ec79e40ba3c3cfceec \
     file://Source/WebCore/rendering/RenderApplet.h;endline=22;md5=fb9694013ad71b78f8913af7a5959680 \

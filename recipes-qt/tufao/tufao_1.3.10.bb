@@ -21,7 +21,7 @@ FILES:${PN}-mkspecs = "\
 "
 
 FILES:${PN}-dev += " \
-    ${OE_QMAKE_PATH_LIBS}/lib*${SOLIBSDEV} \
+    ${OE_QMAKE_PATH_LIBS}/lib*${SOLIBSD-3-ClauseEV} \
     ${OE_QMAKE_PATH_LIBS}/pkgconfig \
     ${OE_QMAKE_PATH_LIBS}/cmake/* \
     ${OE_QMAKE_PATH_LIBS}/*.prl \

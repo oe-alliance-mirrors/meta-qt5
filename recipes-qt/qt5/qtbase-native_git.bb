@@ -3,7 +3,7 @@ DEPENDS = "zlib-native dbus-native"
 SECTION = "libs"
 HOMEPAGE = "http://qt-project.org"
 
-LICENSE = "GFDL-1.3 & BSD & ( GPL-3.0-only & The-Qt-Company-GPL-Exception-1.0 | The-Qt-Company-Commercial ) & ( GPL-2.0-or-later | LGPL-3.0-only | The-Qt-Company-Commercial )"
+LICENSE = "GFDL-1.3 & BSD-3-Clause & ( GPL-3.0-only & The-Qt-Company-GPL-Exception-1.0 | The-Qt-Company-Commercial ) & ( GPL-2.0-or-later | LGPL-3.0-only | The-Qt-Company-Commercial )"
 LIC_FILES_CHKSUM = " \
     file://LICENSE.LGPL3;md5=e6a600fd5e1d9cbde2d983680233ad02 \
     file://LICENSE.LGPLv21;md5=fb91571854638f10b2e5f36562661a5a \
@@ -34,6 +34,7 @@ SRC_URI += "\
     file://0009-Add-OE-specific-specs-for-clang-compiler.patch \
     file://0010-linux-clang-Invert-conditional-for-defining-QT_SOCKL.patch \
     file://0011-tst_qlocale-Enable-QT_USE_FENV-only-on-glibc.patch \
+    file://0021-qfloat16-Include-limits-header.patch \
 "
 
 # common for qtbase-native and nativesdk-qtbase

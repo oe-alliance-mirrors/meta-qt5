@@ -3,7 +3,7 @@ DEPENDS = "nativesdk-zlib qtbase-native"
 SECTION = "libs"
 HOMEPAGE = "http://qt-project.org"
 
-LICENSE = "GFDL-1.3 & BSD & ( GPL-3.0-only & The-Qt-Company-GPL-Exception-1.0 | The-Qt-Company-Commercial ) & ( GPL-2.0-or-later | LGPL-3.0-only | The-Qt-Company-Commercial )"
+LICENSE = "GFDL-1.3 & BSD-3-Clause & ( GPL-3.0-only & The-Qt-Company-GPL-Exception-1.0 | The-Qt-Company-Commercial ) & ( GPL-2.0-or-later | LGPL-3.0-only | The-Qt-Company-Commercial )"
 LIC_FILES_CHKSUM = " \
     file://LICENSE.LGPL3;md5=e6a600fd5e1d9cbde2d983680233ad02 \
     file://LICENSE.LGPLv21;md5=fb91571854638f10b2e5f36562661a5a \
@@ -59,7 +59,7 @@ PACKAGE_DEBUG_SPLIT_STYLE = "debug-without-src"
 
 FILES:${PN}-tools-dev = " \
     ${includedir} \
-    ${FILES_SOLIBSDEV} ${libdir}/*.la \
+    ${FILES_SOLIBSD-3-ClauseEV} ${libdir}/*.la \
     ${libdir}/*.prl \
     ${OE_QMAKE_PATH_ARCHDATA}/mkspecs \
     ${OE_QMAKE_PATH_LIBS}/*.prl \

@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = " \
 DEPENDS += "qtbase qtxmlpatterns qtdeclarative"
 
 PACKAGECONFIG ??= "sdl2"
-PACKAGECONFIG[sdl2] = "-feature-sdl2,-no-feature-sdl2,libsdl2"
+PACKAGECONFIG[sdl2] = "-feature-sdl2,-no-feature-sdl2,liBSD-3-Clausel2"
 
 EXTRA_QMAKEVARS_CONFIGURE += "${PACKAGECONFIG_CONFARGS}"
 

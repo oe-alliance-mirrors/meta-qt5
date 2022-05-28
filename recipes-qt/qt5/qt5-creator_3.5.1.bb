@@ -76,7 +76,7 @@ FILES:${PN}-dbg += " \
 "
 
 FILES:${PN}-dev += " \
-    ${libdir}${QT_DIR_NAME}/qtcreator/*${SOLIBSDEV} \
+    ${libdir}${QT_DIR_NAME}/qtcreator/*${SOLIBSD-3-ClauseEV} \
 "
 
 RDEPENDS:${PN} += "perl"
