@@ -19,7 +19,7 @@ SRC_URI[sha256sum] = "ebd70515b30bbd6098fee29e6271a6696b1183c5530ee30e6ba9aaab19
 S = "${WORKDIR}/PyQt5_gpl-${PV}"
 
 
-inherit qmake5 pythonnative python-dir distro_features_check
+inherit qmake5 python3native python3-dir distro_features_check
 # depends on qt4-x11-free
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -63,7 +63,7 @@ do_install() {
     oe_runmake install
 }
 
-RDEPENDS:${PN} = "python-core python-sip"
+RDEPENDS:${PN} = "python3-core python3-sip"
 
 FILES:${PN} += "${libdir}/${PYTHON_DIR}/site-packages ${datadir}/sip/PyQt5/"
 FILES:${PN}-dbg += "${libdir}/${PYTHON_DIR}/site-packages/*/.debug/"
