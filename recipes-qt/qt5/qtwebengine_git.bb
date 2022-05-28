@@ -68,6 +68,7 @@ COMPATIBLE_MACHINE:armv7a = "(.*)"
 COMPATIBLE_MACHINE:armv7ve = "(.*)"
 COMPATIBLE_MACHINE:aarch64 = "(.*)"
 
+inherit pkgconfig
 inherit qmake5
 inherit gettext
 inherit python3native

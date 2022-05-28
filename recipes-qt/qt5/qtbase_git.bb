@@ -38,6 +38,8 @@ SRC_URI += "\
 # for syncqt
 RDEPENDS:${PN}-tools += "perl"
 
+inherit pkgconfig
+
 # workaround for gold bug:
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842304
 # https://sourceware.org/bugzilla/show_bug.cgi?id=21712

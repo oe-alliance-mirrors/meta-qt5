@@ -28,6 +28,8 @@ SRC_URI += "\
     file://0005-fix-build-with-icu-68.1.patch \
 "
 
+inherit pkgconfig
+
 PACKAGECONFIG ??= "gstreamer qtlocation qtmultimedia qtsensors qtwebchannel \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'libxcomposite libxrender', '', d)} \
     fontconfig \
