@@ -1,6 +1,6 @@
 DESCRIPTION = "Wrapper to select between Qt development binary versions"
 HOMEPAGE = "http://macieira.org/qtchooser"
-LICENSE = "LGPL-2.1 & Digia-Qt-LGPL-Exception-1.1 | GPL-3.0"
+LICENSE = "LGPL-2.1-only & Digia-Qt-LGPL-Exception-1.1 | GPL-3.0-only"
 SRC_URI = "git://code.qt.io/cgit/qtsdk/qtchooser.git;branch=master \
            file://0001-Makefile-install-the-man-dir.patch"
 

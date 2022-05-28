@@ -7,7 +7,7 @@ SUMMARY = "Qt Creator is a new cross-platform Qt IDE"
 # 'System GDB at /usr/bin/gdb.
 
 HOMEPAGE = "https://qt-project.org/"
-LICENSE = "LGPLv2.1 | GPLv3"
+LICENSE = "LGPL-2.1-only | GPL-3.0-only"
 LIC_FILES_CHKSUM = " \
     file://LGPL_EXCEPTION.TXT;md5=f4748b0d1a72c5c8fb5dab2dd1f7fa46 \
     file://LICENSE.LGPLv21;md5=825920de5f6db2eeb1bebe625476346d \
