@@ -19,7 +19,7 @@ SRC_URI[sha256sum] = "ebd70515b30bbd6098fee29e6271a6696b1183c5530ee30e6ba9aaab19
 S = "${WORKDIR}/PyQt5_gpl-${PV}"
 
 
-inherit qmake5 python3native python3-dir features_check.bbclass
+inherit qmake5 python3native python3-dir features_check
 # depends on qt4-x11-free
 REQUIRED_DISTRO_FEATURES = "x11"
 
